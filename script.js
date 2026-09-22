@@ -57,7 +57,7 @@ const updateDemo = (key) => {
   document.querySelector('#demo-title').textContent = content.title;
   document.querySelector('#demo-action').textContent = content.action;
   document.querySelector('#demo-detail').textContent = content.detail;
-  document.querySelector('#response-bars').innerHTML = content.bars.map(([label, value]) => `<div><span>${label}</span><b style="--bar: ${value}">${value}</b></div>`).join('');
+  document.querySelector('#response-bars').innerHTML = content.bars.map(([label, value]) => `<div><span>${label}</span><i class="bar-track"><em style="width: ${value}"></em></i><b>${value}</b></div>`).join('');
   document.querySelector('.demo-status').innerHTML = content.status.map((status, index) => `<span class="${index === 2 ? 'status-active' : ''}"><i data-lucide="${index === 2 ? 'arrow-right' : 'check'}"></i> ${status}</span>`).join('');
   icons();
 };
@@ -66,3 +66,4 @@ document.querySelectorAll('.demo-tab').forEach((tab) => tab.addEventListener('cl
   tab.classList.add('active');
   updateDemo(tab.dataset.demo);
 }));
+updateDemo('people');
